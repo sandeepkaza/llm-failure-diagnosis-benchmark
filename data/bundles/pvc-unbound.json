@@ -1,0 +1,19 @@
+{
+ "scenario_id": "pvc-unbound",
+ "title": "Pod Pending: PVC unbound (no matching StorageClass)",
+ "namespace": "p5",
+ "apply_result": "persistentvolumeclaim/data created\ndeployment.apps/needsdisk created",
+ "evidence": {
+  "pods": "NAME                         READY   STATUS    RESTARTS   AGE   IP       NODE     NOMINATED NODE   READINESS GATES\nneedsdisk-<HASH>   0/1     Pending   0          <AGE>   <none>   <none>   <none>           <none>\n",
+  "describe_pods": "Name:             needsdisk-<HASH>\nNamespace:        p5\nPriority:         0\nService Account:  default\nNode:             <none>\nLabels:           app=needsdisk\n                  pod-template-hash=677c65ffd5\nAnnotations:      <none>\nStatus:           Pending\nIP:               \nIPs:              <none>\nControlled By:    ReplicaSet/needsdisk-677c65ffd5\nContainers:\n  c:\n    Image:        nginx:1.27\n    Port:         <none>\n    Host Port:    <none>\n    Environment:  <none>\n    Mounts:\n      /data from d (rw)\n      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-556dv (ro)\nConditions:\n  Type           Status\n  PodScheduled   False \nVolumes:\n  d:\n    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)\n    ClaimName:  data\n    ReadOnly:   false\n  kube-api-access-556dv:\n    Type:                    Projected (a volume that contains injected data from multiple sources)\n    TokenExpirationSeconds:  3607\n    ConfigMapName:           kube-root-ca.crt\n    Optional:                false\n    DownwardAPI:             true\nQoS Class:                   BestEffort\nNode-Selectors:              <none>\nTolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for <AGE>\n                             node.kubernetes.io/unreachable:NoExecute op=Exists for <AGE>\nEvents:\n  Type     Reason            Age   From               Message\n  ----     ------            ----  ----               -------\n  Warning  FailedScheduling  <AGE>   default-scheduler  0/1 nodes are available: pod has unbound immediate PersistentVolumeClaims. not found\n",
+  "events": "LAST SEEN   TYPE      REASON               OBJECT                            MESSAGE\n<AGE>         Warning   FailedScheduling     pod/needsdisk-<HASH>    0/1 nodes are available: pod has unbound immediate PersistentVolumeClaims. not found\n<AGE>         Normal    SuccessfulCreate     replicaset/needsdisk-677c65ffd5   Created pod: needsdisk-<HASH>\n<AGE>         Normal    ScalingReplicaSet    deployment/needsdisk              Scaled up replica set needsdisk-677c65ffd5 from 0 to 1\n<AGE>          Warning   ProvisioningFailed   persistentvolumeclaim/data        storageclass.storage.k8s.io \"nonexistent-sc\" not found\n",
+  "logs": {
+   "needsdisk-677c65ffd5-tjrtn": {
+    "current": "",
+    "previous": ""
+   }
+  },
+  "workloads": "NAME                        READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES       SELECTOR\ndeployment.apps/needsdisk   0/1     1            0           <AGE>   c            nginx:1.27   app=needsdisk\n\nNAME                                   DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES       SELECTOR\nreplicaset.apps/needsdisk-677c65ffd5   1         1         0       <AGE>   c            nginx:1.27   app=needsdisk,pod-template-hash=677c65ffd5\n\nNAME                         STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS     VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE\npersistentvolumeclaim/data   Pending                                      nonexistent-sc   <unset>                 <AGE>   Filesystem\n\nNAME                         DATA   AGE\nconfigmap/kube-root-ca.crt   1      <AGE>\n",
+  "webhooks": ""
+ }
+}

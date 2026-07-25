@@ -1,0 +1,46 @@
+loaded 606 answers, graded 606
+
+========================================================================
+RQ1 -- diagnosis accuracy at FULL evidence (majority vote over repeats)
+========================================================================
+model                            exact    category       wronghallucinated    MECH   n
+gemma2:9b-instruct-q4_K_M       57.7%       7.7%      26.9%       7.7%    88%  26
+llama3.1:8b-instruct-q4_K_M      61.5%       7.7%      23.1%       7.7%    92%  26
+qwen2.5:14b-instruct            69.2%       0.0%      30.8%       0.0%    96%  26
+qwen2.5:32b-instruct-q4_K_M      73.1%      11.5%      15.4%       0.0%   100%  26
+qwen2.5:7b-instruct             61.5%       3.8%      34.6%       0.0%    88%  26
+
+========================================================================
+RQ1 -- exact+category accuracy by fault category (all models pooled)
+========================================================================
+  gitops         0/5   correct (0%)
+  crash          1/15  correct (7%)
+  scheduling     9/15  correct (60%)
+  network        6/10  correct (60%)
+  config        18/25  correct (72%)
+  probe          8/10  correct (80%)
+  image         15/15  correct (100%)
+  resource      10/10  correct (100%)
+  admission     10/10  correct (100%)
+  storage       10/10  correct (100%)
+  rbac           5/5   correct (100%)
+
+========================================================================
+RQ2 -- accuracy by evidence level (exact+category %, majority vote)
+========================================================================
+model                              full       logs     events   describe
+gemma2:9b-instruct-q4_K_M          65%         -         -         -
+llama3.1:8b-instruct-q4_K_M        69%         -         -         -
+qwen2.5:14b-instruct               69%       46%       71%       71%
+qwen2.5:32b-instruct-q4_K_M        85%         -         -         -
+qwen2.5:7b-instruct                65%         -         -         -
+
+========================================================================
+RQ4 -- cost/latency per correct diagnosis (full level)
+========================================================================
+model                        med lat s   tot tok  tok/correct  correct%
+gemma2:9b-instruct-q4_K_M         2.79    151243         2966       65%
+llama3.1:8b-instruct-q4_K_M       1.59    149663         2772       69%
+qwen2.5:14b-instruct              1.92    159504         2954       69%
+qwen2.5:32b-instruct-q4_K_M      22.23    160396         2468       83%
+qwen2.5:7b-instruct               1.25    159808         3133       65%

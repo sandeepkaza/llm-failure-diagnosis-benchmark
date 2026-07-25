@@ -1,0 +1,19 @@
+{
+ "scenario_id": "cpu-throttle-pending",
+ "title": "Pod Pending: unschedulable CPU request",
+ "namespace": "p5",
+ "apply_result": "deployment.apps/toobig created",
+ "evidence": {
+  "pods": "NAME                     READY   STATUS    RESTARTS   AGE   IP       NODE     NOMINATED NODE   READINESS GATES\ntoobig-<HASH>   0/1     Pending   0          <AGE>   <none>   <none>   <none>           <none>\n",
+  "describe_pods": "Name:             toobig-<HASH>\nNamespace:        p5\nPriority:         0\nService Account:  default\nNode:             <none>\nLabels:           app=toobig\n                  pod-template-hash=975d7cf49\nAnnotations:      <none>\nStatus:           Pending\nIP:               \nIPs:              <none>\nControlled By:    ReplicaSet/toobig-975d7cf49\nContainers:\n  c:\n    Image:      nginx:1.27\n    Port:       <none>\n    Host Port:  <none>\n    Requests:\n      cpu:        64\n    Environment:  <none>\n    Mounts:\n      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-8rlw4 (ro)\nConditions:\n  Type           Status\n  PodScheduled   False \nVolumes:\n  kube-api-access-8rlw4:\n    Type:                    Projected (a volume that contains injected data from multiple sources)\n    TokenExpirationSeconds:  3607\n    ConfigMapName:           kube-root-ca.crt\n    Optional:                false\n    DownwardAPI:             true\nQoS Class:                   Burstable\nNode-Selectors:              <none>\nTolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for <AGE>\n                             node.kubernetes.io/unreachable:NoExecute op=Exists for <AGE>\nEvents:\n  Type     Reason            Age   From               Message\n  ----     ------            ----  ----               -------\n  Warning  FailedScheduling  <AGE>   default-scheduler  0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.\n",
+  "events": "LAST SEEN   TYPE      REASON              OBJECT                        MESSAGE\n<AGE>         Warning   FailedScheduling    pod/toobig-<HASH>    0/1 nodes are available: 1 Insufficient cpu. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.\n<AGE>         Normal    SuccessfulCreate    replicaset/toobig-975d7cf49   Created pod: toobig-<HASH>\n<AGE>         Normal    ScalingReplicaSet   deployment/toobig             Scaled up replica set toobig-975d7cf49 from 0 to 1\n",
+  "logs": {
+   "toobig-975d7cf49-2f8cg": {
+    "current": "",
+    "previous": ""
+   }
+  },
+  "workloads": "NAME                     READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES       SELECTOR\ndeployment.apps/toobig   0/1     1            0           <AGE>   c            nginx:1.27   app=toobig\n\nNAME                               DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES       SELECTOR\nreplicaset.apps/toobig-975d7cf49   1         1         0       <AGE>   c            nginx:1.27   app=toobig,pod-template-hash=975d7cf49\n\nNAME                         DATA   AGE\nconfigmap/kube-root-ca.crt   1      <AGE>\n",
+  "webhooks": ""
+ }
+}

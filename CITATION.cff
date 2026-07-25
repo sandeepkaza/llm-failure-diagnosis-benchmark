@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this dataset or code, please cite it as below."
+title: "Can Open LLMs Diagnose Cloud-Native Failures? A Ground-Truth Benchmark from Injected Faults"
+abstract: "A ground-truth benchmark of 26 injected Kubernetes failures with known root causes, evidence bundles, and a deterministic grading rubric, evaluated against five open LLMs."
+type: dataset
+authors:
+  - family-names: "Kaza"
+    given-names: "Venkata Sandeep Chowdary"
+    email: "sandeep.kaza@gmail.com"
+    orcid: "https://orcid.org/0009-0001-9454-8995"
+license: MIT
+date-released: 2026-07-24
+keywords:
+  - reproducible-measurement
+  - empirical-software-engineering
+# DOI added after Zenodo upload:
+# doi: 10.5281/zenodo.XXXXXXXX

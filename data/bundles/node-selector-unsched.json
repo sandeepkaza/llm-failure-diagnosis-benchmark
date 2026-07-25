@@ -1,0 +1,19 @@
+{
+ "scenario_id": "node-selector-unsched",
+ "title": "Pod Pending: nodeSelector matches no node",
+ "namespace": "p5",
+ "apply_result": "deployment.apps/picky created",
+ "evidence": {
+  "pods": "NAME                     READY   STATUS    RESTARTS   AGE   IP       NODE     NOMINATED NODE   READINESS GATES\npicky-<HASH>   0/1     Pending   0          <AGE>   <none>   <none>   <none>           <none>\n",
+  "describe_pods": "Name:             picky-<HASH>\nNamespace:        p5\nPriority:         0\nService Account:  default\nNode:             <none>\nLabels:           app=picky\n                  pod-template-hash=5df87c6887\nAnnotations:      <none>\nStatus:           Pending\nIP:               \nIPs:              <none>\nControlled By:    ReplicaSet/picky-5df87c6887\nContainers:\n  c:\n    Image:        nginx:1.27\n    Port:         <none>\n    Host Port:    <none>\n    Environment:  <none>\n    Mounts:\n      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-f7fw9 (ro)\nConditions:\n  Type           Status\n  PodScheduled   False \nVolumes:\n  kube-api-access-f7fw9:\n    Type:                    Projected (a volume that contains injected data from multiple sources)\n    TokenExpirationSeconds:  3607\n    ConfigMapName:           kube-root-ca.crt\n    Optional:                false\n    DownwardAPI:             true\nQoS Class:                   BestEffort\nNode-Selectors:              disktype=nvme-special\nTolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for <AGE>\n                             node.kubernetes.io/unreachable:NoExecute op=Exists for <AGE>\nEvents:\n  Type     Reason            Age   From               Message\n  ----     ------            ----  ----               -------\n  Warning  FailedScheduling  <AGE>   default-scheduler  0/1 nodes are available: 1 node(s) didn't match Pod's node affinity/selector. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.\n",
+  "events": "LAST SEEN   TYPE      REASON              OBJECT                        MESSAGE\n<AGE>         Warning   FailedScheduling    pod/picky-<HASH>    0/1 nodes are available: 1 node(s) didn't match Pod's node affinity/selector. no new claims to deallocate, preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.\n<AGE>         Normal    SuccessfulCreate    replicaset/picky-5df87c6887   Created pod: picky-<HASH>\n<AGE>         Normal    ScalingReplicaSet   deployment/picky              Scaled up replica set picky-5df87c6887 from 0 to 1\n",
+  "logs": {
+   "picky-5df87c6887-t6d7x": {
+    "current": "",
+    "previous": ""
+   }
+  },
+  "workloads": "NAME                    READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES       SELECTOR\ndeployment.apps/picky   0/1     1            0           <AGE>   c            nginx:1.27   app=picky\n\nNAME                               DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES       SELECTOR\nreplicaset.apps/picky-5df87c6887   1         1         0       <AGE>   c            nginx:1.27   app=picky,pod-template-hash=5df87c6887\n\nNAME                         DATA   AGE\nconfigmap/kube-root-ca.crt   1      <AGE>\n",
+  "webhooks": ""
+ }
+}

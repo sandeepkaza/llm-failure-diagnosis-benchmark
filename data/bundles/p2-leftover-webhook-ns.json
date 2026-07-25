@@ -1,0 +1,14 @@
+{
+ "scenario_id": "p2-leftover-webhook-ns",
+ "title": "Admission: stale namespaceSelector webhook blocks a labeled namespace",
+ "namespace": "p5",
+ "apply_result": "validatingwebhookconfiguration.admissionregistration.k8s.io/p5-leftover-nswebhook created",
+ "evidence": {
+  "pods": "",
+  "describe_pods": "",
+  "events": "",
+  "logs": {},
+  "workloads": "NAME                         DATA   AGE\nconfigmap/kube-root-ca.crt   1      <AGE>\n",
+  "webhooks": "NAME                                                                                WEBHOOKS   AGE\nvalidatingwebhookconfiguration.admissionregistration.k8s.io/p5-leftover-nswebhook   1          <AGE>\n"
+ }
+}
