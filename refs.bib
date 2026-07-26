@@ -1,31 +1,54 @@
-% NOT web-verified by tooling. The author must open and read every entry
-% before submission (see the pre-submission gate in paper.tex).
+% Web-verified 2026-07-26 against ACM DL / IEEE Xplore / arXiv / dblp.
+% Corrections applied that run:
+%   - zhang2024mlops: first author was WRONG (was "Zhang, Shenglin"; the actual
+%     first author is Lingzhe Zhang). Full author list added, and the entry
+%     retyped @inproceedings -> @misc because it is an arXiv preprint, not a
+%     conference paper. (Key kept as-is to avoid churning paper.tex; note that
+%     the paper is an AIOps survey, not MLOps, so the key name is a misnomer.)
+%   - roy2024exploring: venue was "ACM Symposium on the Foundations of Software
+%     Engineering (FSE), Industry"; the actual venue is the FSE *Companion*
+%     proceedings. Corrected, full author list added.
+%   - notaro / chen / ahmed / roy: verified pages and DOIs added.
+%   - qwen25 / llama31 / gemma2: vague project-homepage URLs replaced with the
+%     actual technical-report arXiv identifiers.
+% Self-citations (kaza2026*) are companion papers in this series; their DOIs
+% are still pending each one's Zenodo deposit.
 
 @article{notaro2021aiops,
-  author  = {Notaro, Paolo and Cardoso, Jorge and Gerndt, Michael},
-  title   = {A Survey of AIOps Methods for Failure Management},
-  journal = {ACM Transactions on Intelligent Systems and Technology},
-  volume  = {12},
-  number  = {6},
-  year    = {2021}
+  author    = {Notaro, Paolo and Cardoso, Jorge and Gerndt, Michael},
+  title     = {A Survey of {AIOps} Methods for Failure Management},
+  journal   = {ACM Transactions on Intelligent Systems and Technology},
+  volume    = {12},
+  number    = {6},
+  articleno = {81},
+  pages     = {1--45},
+  year      = {2021},
+  doi       = {10.1145/3483424}
 }
 
-@inproceedings{zhang2024mlops,
-  author    = {Zhang, Shenglin and others},
-  title     = {A Survey of AIOps for Failure Management in the Era of Large
-               Language Models},
-  booktitle = {arXiv / survey},
-  year      = {2024},
-  note      = {VERIFY exact citation before submission}
+@misc{zhang2024mlops,
+  author       = {Zhang, Lingzhe and Jia, Tong and Jia, Mengxi and Wu, Yifan and
+                  Liu, Aiwei and Yang, Yong and Wu, Zhonghai and Hu, Xuming and
+                  Yu, Philip S. and Li, Ying},
+  title        = {A Survey of {AIOps} for Failure Management in the Era of
+                  Large Language Models},
+  howpublished = {arXiv preprint arXiv:2406.11213},
+  year         = {2024},
+  doi          = {10.48550/arXiv.2406.11213}
 }
 
 @inproceedings{chen2024automatic,
-  author    = {Chen, Yinfang and others},
+  author    = {Chen, Yinfang and Xie, Huaibing and Ma, Minghua and Kang, Yu and
+               Gao, Xin and Shi, Liu and Cao, Yunjie and Gao, Xuedong and
+               Fan, Hao and Wen, Ming and Zeng, Jun and Ghosh, Supriyo and
+               Zhang, Xuchao and Zhang, Chaoyun and Lin, Qingwei and
+               Rajmohan, Saravan and Zhang, Dongmei and Xu, Tianyin},
   title     = {Automatic Root Cause Analysis via Large Language Models for
                Cloud Incidents},
-  booktitle = {Proc.\ European Conference on Computer Systems (EuroSys)},
+  booktitle = {Proc.\ 19th European Conference on Computer Systems (EuroSys)},
+  pages     = {674--688},
   year      = {2024},
-  note      = {VERIFY exact citation before submission}
+  doi       = {10.1145/3627703.3629553}
 }
 
 @inproceedings{ahmed2023recommending,
@@ -33,54 +56,65 @@
                Zimmermann, Thomas and Zhang, Xuchao and Rajmohan, Saravan},
   title     = {Recommending Root-Cause and Mitigation Steps for Cloud Incidents
                using Large Language Models},
-  booktitle = {IEEE/ACM International Conference on Software Engineering (ICSE)},
-  year      = {2023}
+  booktitle = {Proc.\ 45th IEEE/ACM International Conference on Software
+               Engineering (ICSE)},
+  pages     = {1737--1749},
+  year      = {2023},
+  doi       = {10.1109/ICSE48619.2023.00149}
 }
 
 @inproceedings{roy2024exploring,
-  author    = {Roy, Devjeet and others},
-  title     = {Exploring LLM-based Agents for Root Cause Analysis},
-  booktitle = {Proc.\ ACM Symposium on the Foundations of Software Engineering
-               (FSE), Industry},
+  author    = {Roy, Devjeet and Zhang, Xuchao and Bhave, Rashi and
+               Bansal, Chetan and Las-Casas, Pedro and Fonseca, Rodrigo and
+               Rajmohan, Saravan},
+  title     = {Exploring {LLM}-Based Agents for Root Cause Analysis},
+  booktitle = {Companion Proc.\ 32nd ACM International Conference on the
+               Foundations of Software Engineering (FSE Companion)},
+  pages     = {208--219},
   year      = {2024},
-  note      = {VERIFY exact citation before submission}
+  doi       = {10.1145/3663529.3663841}
 }
 
 @misc{kubernetes,
   author       = {{The Kubernetes Authors}},
   title        = {Kubernetes Documentation: Debugging Applications},
   howpublished = {\url{https://kubernetes.io/docs/tasks/debug/}},
-  year         = {2026}
+  year         = {2026},
+  note         = {Accessed 2026-07-26}
 }
 
 @misc{ollama,
   author       = {{Ollama}},
   title        = {Ollama: run open large language models locally},
   howpublished = {\url{https://ollama.com/}},
-  year         = {2026}
+  year         = {2026},
+  note         = {Accessed 2026-07-26}
 }
 
 @misc{qwen25,
-  author       = {{Qwen Team, Alibaba}},
-  title        = {Qwen2.5 Technical Report},
-  howpublished = {\url{https://qwenlm.github.io/}},
-  year         = {2025},
+  author       = {{Qwen Team}},
+  title        = {{Qwen2.5} Technical Report},
+  howpublished = {arXiv preprint arXiv:2412.15115},
+  year         = {2024},
+  doi          = {10.48550/arXiv.2412.15115},
   note         = {Models qwen2.5-7b/14b/32b-instruct}
 }
 
 @misc{llama31,
-  author       = {{Meta AI}},
-  title        = {The Llama 3 Herd of Models},
-  howpublished = {\url{https://ai.meta.com/}},
+  author       = {{Llama Team, AI @ Meta}},
+  title        = {The {Llama} 3 Herd of Models},
+  howpublished = {arXiv preprint arXiv:2407.21783},
   year         = {2024},
+  doi          = {10.48550/arXiv.2407.21783},
   note         = {Llama-3.1-8B-Instruct}
 }
 
 @misc{gemma2,
-  author       = {{Google DeepMind}},
-  title        = {Gemma 2: Improving Open Language Models at a Practical Size},
-  howpublished = {\url{https://ai.google.dev/gemma}},
+  author       = {{Gemma Team, Google DeepMind}},
+  title        = {{Gemma} 2: Improving Open Language Models at a Practical Size},
+  howpublished = {arXiv preprint arXiv:2408.00118},
   year         = {2024},
+  doi          = {10.48550/arXiv.2408.00118},
   note         = {Gemma2-9B-Instruct}
 }
 
@@ -88,7 +122,8 @@
   author       = {{Rancher / SUSE}},
   title        = {k3s: Lightweight Kubernetes},
   howpublished = {\url{https://k3s.io/}},
-  year         = {2026}
+  year         = {2026},
+  note         = {Accessed 2026-07-26}
 }
 
 @article{kaza2026admission,
@@ -96,7 +131,8 @@
   title  = {Native CEL or Webhook? An Empirical Study of Kubernetes Admission
             Policy Engines},
   year   = {2026},
-  note   = {Companion study; source of the admission-webhook fault scenarios (P2)}
+  note   = {Companion study; source of the admission-webhook fault scenarios (P2).
+            DOI pending Zenodo deposit}
 }
 
 @article{kaza2026dr,
@@ -104,7 +140,8 @@
   title  = {Validated Failover: A Reference Architecture and Three-Cloud
             Failure-Injection Evaluation of Kubernetes Disaster Recovery},
   year   = {2026},
-  note   = {Companion study; source of the cross-cluster DR fault scenarios (P3)}
+  note   = {Companion study; source of the cross-cluster DR fault scenarios (P3).
+            DOI pending Zenodo deposit}
 }
 
 @article{kaza2026gitops,
@@ -112,5 +149,6 @@
   title  = {Reconcile or Watch? An Empirical Comparison of the Argo CD and Flux
             GitOps Engines},
   year   = {2026},
-  note   = {Companion study; source of the GitOps drift/manifest fault scenarios (P7)}
+  note   = {Companion study; source of the GitOps drift/manifest fault scenarios (P7).
+            DOI pending Zenodo deposit}
 }

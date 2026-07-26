@@ -2,7 +2,8 @@
 
 **Status: ALL DATA COMPLETE 2026-07-24.** 26 ground-truth fault scenarios,
 5 open models, 3 repeats, deterministic rubric. Data in `harness/results/*.jsonl`
-(492 full-evidence answers + RQ2 levels), `data/bundles/*.json` (26 evidence
+(606 answers total: 390 full-evidence = 5 models x 26 scenarios x 3 repeats,
+plus 216 RQ2-level = 3 levels x 24 scenarios x 3 repeats), `data/bundles/*.json` (26 evidence
 bundles = the citable dataset), `analysis.txt` (analyze.py output).
 **USER VALIDATES the rubric (harness/rubric.py) and these numbers before drafting.**
 
